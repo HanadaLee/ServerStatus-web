@@ -56,9 +56,16 @@ const App: React.FC<any> = () => {
   useEffect(() => {
     initializeIntl()
     const fetchData = () => {
-      fetch("json/stats.json")
-        .then((res) => res.json())
+      fetch("json/stats.json", { redirect: "manual" })
+        .then((res) => {
+          if (res.type === "opaqueredirect" || res.status === 302) {
+            window.location.reload();
+            return;
+          }
+          return res.json();
+        })
         .then((data) => {
+          if (!data) return;
           setServerData(data);
           setIsOnline(true);
         })
