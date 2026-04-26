@@ -1,10 +1,10 @@
 {
   "NAME": "名稱",
-  "TYPE": "類型",
   "LOC": "地區",
   "UPTIME": "運行",
   "LOAD": "負載",
-  "NETWORK": "網絡",
+  "NETWORK_IN": "入站",
+  "NETWORK_OUT": "出站",
   "CPU": "CPU",
   "RAM": "RAM",
   "HDD": "HDD",

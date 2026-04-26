@@ -1,6 +1,6 @@
 {
-  "short_name": "ServerStatus",
-  "name": "A rebuilt serverstatus ui",
+  "short_name": "Server Status",
+  "name": "A rebuilt server status ui",
   "icons": [
     {
       "src": "favicon.ico",

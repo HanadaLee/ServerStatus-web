@@ -1,10 +1,10 @@
 {
   "NAME": "Name",
-  "TYPE": "Type",
   "LOC": "Location",
   "UPTIME": "Uptime",
   "LOAD": "Load",
-  "NETWORK": "Network",
+  "NETWORK_IN": "Inbound",
+  "NETWORK_OUT": "Outbound",
   "CPU": "CPU",
   "RAM": "RAM",
   "HDD": "HDD",

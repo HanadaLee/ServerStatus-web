@@ -65,7 +65,7 @@ const App: React.FC<any> = () => {
         .catch((e) => console.log("错误:", e));
     };
     fetchData();
-    let itv = setInterval(fetchData, 5000);
+    let itv = setInterval(fetchData, 1000);
     return () => {
       clearInterval(itv);
     };
@@ -75,7 +75,7 @@ const App: React.FC<any> = () => {
     <div className="App">
       {initDone && (<Layout>
         <Header>
-          <div className="logo">ServerStatus</div>
+          <div className="logo">Server Status</div>
         </Header>
         <Content style={{ background: "#fff" }}>
           <Row justify="center">

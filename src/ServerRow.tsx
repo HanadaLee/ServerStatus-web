@@ -49,12 +49,12 @@ function transUptime(uptime: string): string {
 
 function networkUnit(network: number): string {
   network = network || 0;
-  if (network < 1000) {
+  if (network < 1024) {
     return `${network.toFixed(0)}B`;
-  } if (network < 1000 * 1000) {
-    return `${(network / 1000).toFixed(0)}K`;
+  } if (network < 1024 * 1024) {
+    return `${(network / 1024).toFixed(0)}K`;
   }
-  return `${(network / 1000 / 1000).toFixed(0)}M`;
+  return `${(network / 1024 / 1024).toFixed(0)}M`;
 }
 
 function bytesToSize(bytes: number, precision: number = 1, si: number = 0) {
@@ -129,36 +129,34 @@ const ServerRow: React.FC<SergateData> = (props: SergateData) => {
   updated = updated || '0';
   const updatedInt = parseInt(updated, 10) * 1000;
   const updatedTime = formatDateTime(new Date(updatedInt));
-  let idx = 1;
 
   return (
     <div className="sergate">
       <Row className="sr-head" justify="space-around" gutter={10}>
         <Col xs={3} sm={3} md={1} lg={1}>IPv4</Col>
         <Col xs={0} sm={0} md={1} lg={1}>IPv6</Col>
-        <Col xs={5} sm={4} md={2} lg={2}>{intl.get('NAME')}</Col>
-        <Col xs={0} sm={2} md={2} lg={2}>{intl.get('TYPE')}</Col>
+        <Col xs={5} sm={6} md={4} lg={4}>{intl.get('NAME')}</Col>
         <Col xs={2} sm={2} md={1} lg={1}>{intl.get('LOC')}</Col>
         <Col xs={4} sm={4} md={3} lg={2}>{intl.get('UPTIME')}</Col>
         <Col xs={0} sm={0} md={0} lg={1}>{intl.get('LOAD')}</Col>
-        <Col xs={0} sm={0} md={5} lg={4}>{intl.get('NETWORK')}</Col>
+        <Col xs={0} sm={0} md={3} lg={2}>{intl.get('NETWORK_IN')}</Col>
+        <Col xs={0} sm={0} md={3} lg={2}>{intl.get('NETWORK_OUT')}</Col>
         <Col xs={3} sm={3} md={3} lg={3}>{intl.get('CPU')}</Col>
         <Col xs={3} sm={3} md={3} lg={3}>{intl.get('RAM')}</Col>
         <Col xs={4} sm={3} md={3} lg={3}>{intl.get('HDD')}</Col>
       </Row>
       {servers && servers.length > 0 ? servers.map((server) => (
         <Row key={server.host} className="sr-body" justify="space-around" gutter={10}>
-          <span className="col-num">{idx++}</span>
           <Col xs={3} sm={3} md={1} lg={1}>{onlineTag(server.online4, 'IPv4')}</Col>
           <Col xs={0} sm={0} md={1} lg={1}>{onlineTag(server.online6, 'IPv6')}</Col>
-          <Col xs={5} sm={4} md={2} lg={2}>{server.host || server.name}</Col>
-          <Col xs={0} sm={2} md={2} lg={2}>{server.type}</Col>
+          <Col xs={5} sm={6} md={4} lg={4}>{server.host || server.name}</Col>
           <Col xs={2} sm={2} md={1} lg={1}><Flag loc={server.location} /></Col>
           <Col xs={4} sm={4} md={3} lg={2}>{transUptime(server.uptime)}</Col>
           <Col xs={0} sm={0} md={0} lg={1}>{server.load}</Col>
-          <Col xs={0} sm={0} md={5} lg={4}>
+          <Col xs={0} sm={0} md={3} lg={2}>
             {networkUnit(server.network_rx)}
-            ↓ | ↑
+          </Col>
+          <Col xs={0} sm={0} md={3} lg={2}>
             {networkUnit(server.network_tx)}
           </Col>
           <Col xs={3} sm={3} md={3} lg={3}>
