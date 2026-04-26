@@ -9,7 +9,7 @@ import enUS from './locales/en-US.json';
 
 import ServerRow from "./ServerRow";
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content } = Layout;
 
 const LOCALE_DATA = {
   "en-US": enUS,
@@ -90,25 +90,6 @@ const App: React.FC<any> = () => {
             </Col>
           </Row>
         </Content>
-        <Footer className="footer">
-          <a
-            href="https://github.com/krwu/ServerStatus-web"
-            rel="external noopener"
-          >
-            WebUI
-          </a>{" "}
-          for{" "}
-          <a
-            href="https://github.com/BotoX/ServerStatus/"
-            rel="external noopener"
-          >
-            ServerStatus
-          </a>
-          , made by{" "}
-          <a href="https://www.ofcss.com/" rel="external noopener">
-            Kairee
-          </a>
-        </Footer>
       </Layout>
       )}
     </div>

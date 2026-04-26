@@ -135,9 +135,9 @@ const ServerRow: React.FC<SergateData> = (props: SergateData) => {
       <Row className="sr-head" justify="space-around" gutter={10}>
         <Col xs={3} sm={3} md={1} lg={1}>IPv4</Col>
         <Col xs={0} sm={0} md={1} lg={1}>IPv6</Col>
-        <Col xs={5} sm={6} md={4} lg={4}>{intl.get('NAME')}</Col>
-        <Col xs={2} sm={2} md={1} lg={1}>{intl.get('LOC')}</Col>
-        <Col xs={4} sm={4} md={3} lg={2}>{intl.get('UPTIME')}</Col>
+        <Col xs={7} sm={6} md={4} lg={4}>{intl.get('NAME')}</Col>
+        <Col xs={0} sm={2} md={1} lg={1}>{intl.get('LOC')}</Col>
+        <Col xs={0} sm={4} md={3} lg={2}>{intl.get('UPTIME')}</Col>
         <Col xs={0} sm={0} md={0} lg={1}>{intl.get('LOAD')}</Col>
         <Col xs={0} sm={0} md={3} lg={2}>{intl.get('NETWORK_IN')}</Col>
         <Col xs={0} sm={0} md={3} lg={2}>{intl.get('NETWORK_OUT')}</Col>
@@ -149,9 +149,9 @@ const ServerRow: React.FC<SergateData> = (props: SergateData) => {
         <Row key={server.host} className="sr-body" justify="space-around" gutter={10}>
           <Col xs={3} sm={3} md={1} lg={1}>{onlineTag(server.online4, 'IPv4')}</Col>
           <Col xs={0} sm={0} md={1} lg={1}>{onlineTag(server.online6, 'IPv6')}</Col>
-          <Col xs={5} sm={6} md={4} lg={4}>{server.host || server.name}</Col>
-          <Col xs={2} sm={2} md={1} lg={1}><Flag loc={server.location} /></Col>
-          <Col xs={4} sm={4} md={3} lg={2}>{transUptime(server.uptime)}</Col>
+          <Col xs={7} sm={6} md={4} lg={4}>{server.host || server.name}</Col>
+          <Col xs={0} sm={2} md={1} lg={1}><Flag loc={server.location} /></Col>
+          <Col xs={0} sm={4} md={3} lg={2}>{transUptime(server.uptime)}</Col>
           <Col xs={0} sm={0} md={0} lg={1}>{server.load}</Col>
           <Col xs={0} sm={0} md={3} lg={2}>
             {networkUnit(server.network_rx)}
